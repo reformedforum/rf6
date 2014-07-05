@@ -20,10 +20,10 @@ define('POST_EXCERPT_LENGTH', 40); // Length in words for excerpt_length filter 
 function roots_main_class() {
   if (roots_display_sidebar()) {
     // Classes on pages with the sidebar
-    $class = 'col-sm-8';
+    $class = 'col-md-9 col-sm-9';
   } else {
     // Classes on full width pages
-    $class = 'col-sm-12';
+    $class = 'col-md-12 col-sm-12';
   }
 
   return $class;
@@ -33,7 +33,7 @@ function roots_main_class() {
  * .sidebar classes
  */
 function roots_sidebar_class() {
-  return 'col-sm-4';
+  return 'col-md-3 col-sm-3';
 }
 
 /**

@@ -2,16 +2,24 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-7">
+				<?php /*
 				<div class="call-us top-bar-block">
 					<i class="icon-phone"></i>
 					<span>
 						Call us at 440.973.6786
 					</span>
 				</div>
+				*/ ?>
 				<div class="mail-us top-bar-block">
 					<i class="icon-email"></i>                            
 					<span>
 						E-mail: mail@reformedforum.org
+					</span>                            
+				</div>
+				<div class="mail-us top-bar-block">
+					<i class="icon-like"></i>                            
+					<span>
+						<a href="/donate">Give</a>
 					</span>                            
 				</div>
 
@@ -26,13 +34,13 @@
 				<div class="social-icons">
 					<ul>
 						<li>
+							<a href="https://plus.google.com/b/104201906423648760148/" target="_blank" class="social-media-icon googleplus-icon" data-original-title="googleplus">googleplus</a>
+						</li>
+						<li>
 							<a href="http://www.facebook.com/reformedforum" target="_blank" class="social-media-icon facebook-icon" data-original-title="facebook">facebook</a>
 						</li>
 						<li>
 							<a href="http://www.twitter.com/reformedforum" target="_blank" class="social-media-icon twitter-icon" data-original-title="twitter">twitter</a>
-						</li>
-						<li>
-							<a href="https://plus.google.com/b/104201906423648760148/" target="_blank" class="social-media-icon googleplus-icon" data-original-title="googleplus">googleplus</a>
 						</li>
 					</ul>
 

@@ -21,7 +21,7 @@
 					}
 				  ?>
 				  
-				  <?php get_template_part('templates/page-title'); // if this is loaded by do_action('get_header') above, then delete this line ?>
+				  <?php get_template_part('templates/page-title'); // need logic to know when to display this - I believe only some Kanzi page templates make use of this. ?>
 				  
 			</div><!--.top wrapper end -->
 			
@@ -36,16 +36,18 @@
             	<div class="body-wrapper">
 					<!-- main content -->
 					<div class="container">
-						<?php include roots_template_path(); ?>
-					</div>
-                   
-					<?php if (roots_display_sidebar()) : ?>
-						<div class="col-md-3 col-sm-3">
+						<div class="row">
+							<div class="<?php echo roots_main_class(); ?>">
+								<?php include roots_template_path(); ?>
+							</div>
+							
+							<?php if (roots_display_sidebar()) : ?>
 							<div class="sidebar <?php echo roots_sidebar_class(); ?>" role="complementary">
 							  <?php include roots_sidebar_path(); ?>
 							</div><!-- /.sidebar -->
+							<?php endif; ?>
 						</div>
-					<?php endif; ?>
+					</div>
                 </div>
             </div><!--.content-wrapper end -->
 
