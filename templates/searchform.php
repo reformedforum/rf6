@@ -1,9 +1,5 @@
-<form role="search" method="get" class="search-form form-inline" action="<?php echo home_url('/'); ?>">
-  <div class="input-group">
-    <input type="search" value="<?php if (is_search()) { echo get_search_query(); } ?>" name="s" class="search-field form-control" placeholder="<?php _e('Search', 'roots'); ?> <?php bloginfo('name'); ?>">
-    <label class="hide"><?php _e('Search for:', 'roots'); ?></label>
-    <span class="input-group-btn">
-      <button type="submit" class="search-submit btn btn-default"><?php _e('Search', 'roots'); ?></button>
-    </span>
-  </div>
+<form action="<?php echo home_url('/'); ?>" method="get" role="search">
+	<input type="text" value="<?php if (is_search()) { echo get_search_query(); } ?>" class="searchbox-inputtext" id="searchbox-inputtext" name="s" placeholder="<?php _e('Search', 'roots'); ?> <?php bloginfo('name'); ?>"/>
+	<label class="searchbox-icon" for="searchbox-inputtext"></label>
+	<input type="submit" class="searchbox-submit" value="<?php _e('Search', 'roots'); ?>"/>
 </form>

@@ -3222,6 +3222,7 @@ Footer
 }
 .footer .copyright .copyright-text {
     line-height: 40px;
+    color: rgb(201, 201, 201);
 }
 
 .flickr_badge_wrapper .flickr_badge_image {
@@ -6453,5 +6454,3 @@ Testimonial
     width: auto;
     height: 190px;
 }
-
-
