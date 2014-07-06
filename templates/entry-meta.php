@@ -1,2 +1,26 @@
-<time class="published" datetime="<?php echo get_the_time('c'); ?>"><?php echo get_the_date(); ?></time>
-<p class="byline author vcard"><?php echo __('By', 'roots'); ?> <a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>" rel="author" class="fn"><?php echo get_the_author(); ?></a></p>
+<div class="blog-post-details">
+
+	<!-- Date -->
+	<div class="blog-post-details-item blog-post-details-item-left icon-calendar" datetime="<?php echo get_the_time('c'); ?>">
+		<?php the_time('F jS, Y'); ?>
+	</div>
+
+	<div class="blog-post-details-item blog-post-details-item-left icon-user">
+		<?php echo __('By', 'roots'); ?> <?php the_author_posts_link(); ?>
+	</div>
+	<!-- //Author Name// -->
+
+
+	<!-- Tags -->
+	<div class="blog-post-details-item blog-post-details-item-left blog-post-details-tags icon-files">
+		<?php the_category(', '); //the_tags(); ?>
+	</div>
+	<!-- //Tags// -->
+
+	<!-- Comments -->
+	<div class="blog-post-details-item blog-post-details-item-left blog-post-details-item-last icon-comment">
+		<?php comments_popup_link('No Responses', '1 Response', '% Responses'); ?>
+	</div>
+	<!-- //Comments// -->
+
+</div>

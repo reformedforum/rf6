@@ -21,7 +21,7 @@
 					}
 				  ?>
 				  
-				  <?php get_template_part('templates/page-title'); // need logic to know when to display this - I believe only some Kanzi page templates make use of this. ?>
+				  <?php get_template_part('templates/page-header'); // need logic to know when to display this - I believe only some Kanzi page templates make use of this. ?>
 				  
 			</div><!--.top wrapper end -->
 			
@@ -42,7 +42,7 @@
 							</div>
 							
 							<?php if (roots_display_sidebar()) : ?>
-							<div class="sidebar <?php echo roots_sidebar_class(); ?>" role="complementary">
+							<div class="<?php echo roots_sidebar_class(); ?>" role="complementary">
 							  <?php include roots_sidebar_path(); ?>
 							</div><!-- /.sidebar -->
 							<?php endif; ?>

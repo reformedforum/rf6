@@ -17,10 +17,14 @@
 								<img src="<?php roots_skin_directory(); ?>/images/main_logo_compact_light.png" alt=""/>
 							</div>
 							<div class="footer-content-text">
-								<p>Lorem ipsum dolor sit amet nec, consectetuer adipiscing elit. Aenean commodo ligula eget
-									dolor.</p>
-								<p>Lorem ipsum dolor sit amet nec, consectetuer adipiscing elit. Aenean commodo ligula eget
-									dolor.</p>
+								<p>
+									P.O. Box 27422<br />
+									Philadelphia, PA 19118
+								</p>
+								<p>
+									Voicemail: 440.973.6786<br />
+									<a href="mailto:mail@reformedforum.org">mail@reformedforum.org</a>
+								</p>
 							</div>
 						</div>
 					</div>

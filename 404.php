@@ -1,13 +1,19 @@
-<?php get_template_part('templates/page', 'header'); ?>
 
-<div class="alert alert-warning">
-  <?php _e('Sorry, but the page you were trying to view does not exist.', 'roots'); ?>
+
+<div class="not-found-404">
+	<h2>404<i class="iscon-remove-sign skin-text"></i></h2>
+	<?php _e('Sorry, but the page you were trying to view does not exist.', 'roots'); ?>
+	
+	<?php //get_search_form(); ?>
+
+	<form action="<?php echo home_url('/'); ?>" id="search-form" class="form-wrapper" method="get">
+
+		<div class="search-404">
+
+			<input type="text" name="s" class="inputStyle search-text"/>
+			<input type="submit" value="Search" class="search-submit"/>
+
+		</div>
+	</form>                        
 </div>
-
-<p><?php _e('It looks like this was the result of either:', 'roots'); ?></p>
-<ul>
-  <li><?php _e('a mistyped address', 'roots'); ?></li>
-  <li><?php _e('an out-of-date link', 'roots'); ?></li>
-</ul>
-
-<?php get_search_form(); ?>
+				

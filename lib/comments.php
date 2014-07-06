@@ -6,8 +6,9 @@
  */
 class Roots_Walker_Comment extends Walker_Comment {
   function start_lvl(&$output, $depth = 0, $args = array()) {
+	if ($depth > 0) { $children = 'children '; } else { $children = ''; }
     $GLOBALS['comment_depth'] = $depth + 1; ?>
-    <ul <?php comment_class('media list-unstyled comment-' . get_comment_ID()); ?>>
+    <ul <?php comment_class($children . 'media list-unstyled comment-' . get_comment_ID()); ?>>
     <?php
   }
 
@@ -28,7 +29,7 @@ class Roots_Walker_Comment extends Walker_Comment {
 
     extract($args, EXTR_SKIP); ?>
 
-  <li id="comment-<?php comment_ID(); ?>" <?php comment_class('media comment-' . get_comment_ID()); ?>>
+  <li id="comment-<?php comment_ID(); ?>" <?php comment_class('media comment comment-' . get_comment_ID()); ?>>
     <?php include(locate_template('templates/comment.php')); ?>
   <?php
   }
@@ -38,8 +39,7 @@ class Roots_Walker_Comment extends Walker_Comment {
       call_user_func($args['end-callback'], $comment, $args, $depth);
       return;
     }
-    // Close ".media-body" <div> located in templates/comment.php, and then the comment's <li>
-    echo "</div></li>\n";
+    echo "</li>\n";
   }
 }
 

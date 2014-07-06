@@ -228,6 +228,7 @@ blockquote {
     border-left: 1px solid;
     padding-left: 10px;
     float: left;
+    margin-top: 1px;
     margin-bottom: 10px;
 }
 
