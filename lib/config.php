@@ -81,3 +81,15 @@ if (!isset($content_width)) { $content_width = 1140; }
 function roots_skin_directory() {
 	echo get_template_directory_uri() . "/_kanzi";
 }
+
+function roots_display_header() {
+	if ( is_front_page() ) { 
+		return false; 
+	} else {
+		return true;
+	}
+}
+
+function roots_is_abstract_template() {
+	return is_front_page();
+}

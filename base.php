@@ -23,6 +23,8 @@
 				  
 				  <?php get_template_part('templates/page-header'); // need logic to know when to display this - I believe only some Kanzi page templates make use of this. ?>
 				  
+				  <?php if ( is_front_page() ) { get_template_part('templates/elements/slider'); } ?>
+				  
 			</div><!--.top wrapper end -->
 			
 			<div class="loading-container">
@@ -31,6 +33,12 @@
                     <div class="double-bounce2"></div>
                 </div>
             </div>
+            
+            <?php if ( roots_is_abstract_template() ) { ?>
+            
+            	<?php include roots_template_path(); ?>
+            
+            <?php } else { ?>
         	
             <div class="content-wrapper hide-until-loading">
             	<div class="body-wrapper">
@@ -49,7 +57,10 @@
 						</div>
 					</div>
                 </div>
+                
             </div><!--.content-wrapper end -->
+            
+            <?php } ?>
 
         </div><!-- wrapper end -->
         

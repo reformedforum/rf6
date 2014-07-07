@@ -15,9 +15,12 @@ function roots_setup() {
   add_theme_support('post-thumbnails');
   // set_post_thumbnail_size(150, 150, false);
   // add_image_size('category-thumb', 300, 9999); // 300px wide (and unlimited height)
+  add_image_size('slider', 2000, 500);
+  add_image_size('content', 768, 200);
+  add_image_size('content-single', 768, 400);
 
   // Add post formats (http://codex.wordpress.org/Post_Formats)
-  // add_theme_support('post-formats', array('aside', 'gallery', 'link', 'image', 'quote', 'status', 'video', 'audio', 'chat'));
+  add_theme_support( 'post-formats', array( 'gallery', 'link', 'quote', 'video', 'audio' ) );
 
   // Tell the TinyMCE editor to use a custom stylesheet
   add_editor_style('/assets/css/editor-style.css');

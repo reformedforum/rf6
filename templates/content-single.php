@@ -3,9 +3,7 @@
 <!-- Blog Post -->
 <div class="blog-post" <?php // post_class(); ?>>
 
-	<div class="blog-post-type">
-		<i class="icon-pen"> </i>
-	</div>
+	<?php get_template_part('templates/elements/icon'); ?>
 
 	<div class="blog-span">
 		<div class="blog-post-featured-img img-overlay">
@@ -54,7 +52,9 @@
 			<?php if ( get_post_type($post->ID) == 'podcast' ) { podcast_info(); } ?>                                          
 		</div>
 
-	<?php get_template_part('templates/entry-meta'); ?>
+		<div class="blog-post-details">
+			<?php get_template_part('templates/entry-meta'); ?>
+		</div>
 	
 	<?php wp_link_pages(array('before' => '<nav class="page-nav"><p>' . __('Pages:', 'roots'), 'after' => '</p></nav>')); ?>
 
