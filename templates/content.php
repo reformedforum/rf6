@@ -67,12 +67,8 @@
 				<div class="blog-post-featured-img img-overlay">
 
 					<?php if ( has_post_thumbnail() ) {
-						$post_thumbnail_id = get_post_thumbnail_id();
-						$post_thumbnail_url = wp_get_attachment_url( $post_thumbnail_id ); ?>
-						<?php // <div class="img-cropper" style="max-height:300px;overflow:hidden;"> // This is a trick for cropping the image. I'm going to try to use featured image sizes, since the cropping is intentional and often more aesthetic. ?>
-						<img src="<?php echo $post_thumbnail_url; ?>" alt="" class="img-responsive" height="auto" width="100%" />
-						<?php // </div> ?>
-					<?php } ?>
+						the_post_thumbnail('content', array('class'=>'img-responsive'));
+					} ?>
 
 					<div class="item-img-overlay">
 				
@@ -106,7 +102,7 @@
 			<?php if (get_post_format() == "quote") { ?>			
 				<div class="blog_post_quote">
 					<?php the_content(); ?>
-					<div class="quote-author">The Author's Name</div>                    
+					<div class="quote-author">The Author&rsquo;s Name</div>                    
 				</div>
 			<?php } else { ?>
 				<?php the_excerpt(); ?>

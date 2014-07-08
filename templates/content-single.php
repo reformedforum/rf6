@@ -8,11 +8,7 @@
 	<div class="blog-span">
 		<div class="blog-post-featured-img img-overlay">
 
-			<?php if ( has_post_thumbnail() ) {
-				$post_thumbnail_id = get_post_thumbnail_id();
-        		$post_thumbnail_url = wp_get_attachment_url( $post_thumbnail_id ); ?>
-        		<img src="<?php echo $post_thumbnail_url; ?>" alt="" class="img-responsive" height="auto" width="100%" />
-			<?php } ?>
+			<?php if ( has_post_thumbnail() ) { the_post_thumbnail('content-single', array('class'=>'img-responsive')); } ?>
 
 			<div class="item-img-overlay">
 				
@@ -48,48 +44,70 @@
 			<?php } ?>
 		
 			<?php the_content(); ?>  
-			
-			<?php if ( get_post_type($post->ID) == 'podcast' ) { podcast_info(); } ?>                                          
+			                                          
 		</div>
 
 		<div class="blog-post-details">
 			<?php get_template_part('templates/entry-meta'); ?>
 		</div>
 	
-	<?php wp_link_pages(array('before' => '<nav class="page-nav"><p>' . __('Pages:', 'roots'), 'after' => '</p></nav>')); ?>
+		<?php wp_link_pages(array('before' => '<nav class="page-nav"><p>' . __('Pages:', 'roots'), 'after' => '</p></nav>')); ?>
 
 	</div>
 
 </div>
 <!-- //Blog Post// -->
 
-<!-- About The Author -->
-<div class="title-block clearfix">
-	<h3 class="h3-body-title">About The Author</h3>
-	<div class="title-seperator"></div>
-</div>            
-<div class="about-the-author">
-	<div class="blog-span-bottom">
-
-
-		<div class="the-author-bio">
-			<div class="the-author-thumbnail">
-				<img src="<?php roots_skin_directory(); ?>/images/placeholders/author-placeholder.jpg" alt="John Doe"  class="img-responsive"/>
-			</div>
-
-			<div class="the-author-small-bio">
-				<div class="the-author-name">
-					<?php the_author_posts_link(); ?>
+<?php if ( get_post_type($post->ID) == 'podcast' ) { ?>
+	<div class="title-block clearfix">
+		<h3 class="h3-body-title">About the Program</h3>
+		<div class="title-seperator"></div>
+	</div>            
+	<div class="about-the-author">
+		<div class="blog-span-bottom">
+			<div class="the-author-bio">
+				<div class="the-author-thumbnail">
+					<img src="<?php roots_skin_directory(); ?>/images/placeholders/author-placeholder.jpg" alt="John Doe"  class="img-responsive"/>
 				</div>
-				<p>
-					<?php the_author_meta(); ?>
-					Lorem ipsum dolor sit amet, in pri offendit ocurreret. Vix sumo ferri an. pfs adodio fugit delenit ut qui. Omittam suscipiantur ex  vel,ex audiam  intellegat gfIn labitur discere eos, nam an feugiat voluptua.                                Lorem ipsum dolor sit amet, in pri offendit ocurreret. Vix sumo ferri an. pfs adodio fugit delenit ut qui                                      
-				</p>
+
+				<div class="the-author-small-bio">
+					<div class="the-author-name">
+						Program name
+					</div>
+					<p>
+						Program description 
+						<a href="">Browse</a> more episodes.           
+					</p>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
-<!-- //About The Author// -->
+<?php } else { ?>
+	<!-- About The Author -->
+	<div class="title-block clearfix">
+		<h3 class="h3-body-title">About the Author</h3>
+		<div class="title-seperator"></div>
+	</div>            
+	<div class="about-the-author">
+		<div class="blog-span-bottom">
+			<div class="the-author-bio">
+				<div class="the-author-thumbnail">
+					<img src="<?php roots_skin_directory(); ?>/images/placeholders/author-placeholder.jpg" alt="John Doe"  class="img-responsive"/>
+				</div>
+
+				<div class="the-author-small-bio">
+					<div class="the-author-name">
+						<?php the_author_posts_link(); ?>
+					</div>
+					<p>
+						<?php the_author_meta('description'); ?>            
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- //About The Author// -->
+<?php } ?>
 
 <?php comments_template('/templates/comments.php'); ?>
 

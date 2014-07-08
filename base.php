@@ -7,6 +7,18 @@
       <?php _e('You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.', 'roots'); ?>
     </div>
   <![endif]-->
+  
+		<!-- Beacon Ads Ad Code -->
+		<script type="text/javascript">
+		(function(){
+		  var bsa = document.createElement('script');
+			 bsa.type = 'text/javascript';
+			 bsa.async = true;
+			 bsa.src = 'http://cdn.beaconads.com/ac/beaconads.js';
+		  (document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(bsa);
+		})();
+		</script>
+		<!-- End Beacon Ads Ad Code -->
 
         <div id="wrapper">
 			<div class="top_wrapper">
@@ -23,22 +35,20 @@
 				  
 				  <?php get_template_part('templates/page-header'); // need logic to know when to display this - I believe only some Kanzi page templates make use of this. ?>
 				  
-				  <?php if ( is_front_page() ) { get_template_part('templates/elements/slider'); } ?>
-				  
 			</div><!--.top wrapper end -->
-			
-			<div class="loading-container">
-                <div class="spinner">
-                    <div class="double-bounce1"></div>
-                    <div class="double-bounce2"></div>
-                </div>
-            </div>
             
             <?php if ( roots_is_abstract_template() ) { ?>
             
             	<?php include roots_template_path(); ?>
             
             <?php } else { ?>
+            
+			<div class="loading-container">
+                <div class="spinner">
+                    <div class="double-bounce1"></div>
+                    <div class="double-bounce2"></div>
+                </div>
+            </div>
         	
             <div class="content-wrapper hide-until-loading">
             	<div class="body-wrapper">

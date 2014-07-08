@@ -50,6 +50,11 @@
         
         <?php wp_head(); ?>
         
+		<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/assets/js/rfplayer/jplayer/jquery.jplayer.min.js"></script>	
+		<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/assets/js/rfplayer/jplayer/add-on/jquery.jplayer.inspector.js"></script>	
+
+		<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory'); ?>/assets/js/rfplayer/skin/jplayer-black-and-red.css">
+        
         <link rel="alternate" type="application/rss+xml" title="<?php echo get_bloginfo('name'); ?> Feed" href="<?php echo esc_url(get_feed_link()); ?>">
     </head>
 

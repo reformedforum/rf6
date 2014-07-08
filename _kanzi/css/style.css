@@ -421,7 +421,7 @@ textarea .section-content.section-image {
 }
 
 .section-content.section-color-red {
-    background-color: #e74c3c;
+    background-color: #990000; /*#e74c3c;*/
     border: 0;
 }
 
@@ -6454,4 +6454,29 @@ Testimonial
 .testimonial-big .testimonial-big-img img {
     width: auto;
     height: 190px;
+}
+
+/* Podcast styles */
+#content div.media, .jp-audio {
+  margin-top: 15px; }
+
+.jp-audio {
+  float: left;
+  margin-right: 10px; }
+
+div.media {
+  float: left;
+  margin-bottom: 10px;
+  padding: 5px 8px 8px 0; }
+
+div.media div {
+  float: left;
+  margin-right: 10px; }
+
+div.media div.first-child {
+  padding-left: 0; }
+  
+div.media + p {
+	clear: both;
+	padding-top: 20px;
 }

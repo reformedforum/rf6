@@ -29,22 +29,23 @@
 						</div>
 					</div>
 					<!-- //Footer Col.// -->
-
+				
 
 					<!-- Footer Col. -->
 					<div class="col-md-3 col-sm-3 footer-col">
 						<div class="footer-title">
-							Recent Tweets
+							Our Network
 						</div>
-						<div class="footer-content footer-recent-tweets-container">
-							<ul class="tweetList footer-recent-tweets">
-								<li class="tweet_content item">
-									<p>Grab a copy of the popular Boomerang theme for $10 until its next release! </p>
-									<p class="timestamp">2 days ago</p>
+						<div class="footer-content">
+							<ul class="footer-category-list">
+								<li>
+									<a href="/">Reformed Forum</a>
 								</li>
-								<li class="tweet_content item">
-									<p>Newest Blog Awesome post: Stacking Text and Icons <a href="http://t.co/1qRP8K1wjG">Check it</a></p>
-									<p class="timestamp">4 days ago</p>
+								<li>
+									<a href="http://reformed.academy">Reformed Academy</a>
+								</li>
+								<li>
+									<a href="http://www.feedingonchrist.com">Feeding on Christ</a>
 								</li>
 							</ul>
 						</div>
@@ -55,12 +56,12 @@
 					<!-- Footer Col. -->
 					<div class="col-md-3 col-sm-3 footer-col">
 						<div class="footer-title">
-							Links
+							Resources
 						</div>
 						<div class="footer-content">
 							<ul class="footer-category-list">
 								<li>
-									<a href="">Lorem Ipsum</a>
+									<a href="">Suggested Reading List</a>
 								</li>
 								<li>
 									<a href="">Dolor Sit Amet</a>
@@ -84,8 +85,28 @@
 						</div>
 					</div>
 					<!-- //Footer Col.// -->
+					
+					<!-- Footer Col. -->
+					<div class="col-md-3 col-sm-3 footer-col">
+						<div class="footer-title">
+							Recent Tweets
+						</div>
+						<div class="footer-content footer-recent-tweets-container">
+							<ul class="tweetList footer-recent-tweets">
+								<li class="tweet_content item">
+									<p>Grab a copy of the popular Boomerang theme for $10 until its next release! </p>
+									<p class="timestamp">2 days ago</p>
+								</li>
+								<li class="tweet_content item">
+									<p>Newest Blog Awesome post: Stacking Text and Icons <a href="http://t.co/1qRP8K1wjG">Check it</a></p>
+									<p class="timestamp">4 days ago</p>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<!-- //Footer Col.// -->
 
-
+					<?php /*
 					<!-- Footer Col. -->
 					<div class="col-md-3 col-sm-3 footer-col">
 						<div class="footer-title">
@@ -99,6 +120,7 @@
 
 						</div>
 					</div>
+					*/ ?>
 				</div>
 			</div>
 

@@ -3,10 +3,12 @@
 	<?php the_time('F jS, Y'); ?>
 </div>
 
+<?php if ( get_post_type($post->ID) == 'post' ) { ?>
 <div class="blog-post-details-item blog-post-details-item-left icon-user">
 	<?php echo __('By', 'roots'); ?> <?php the_author_posts_link(); ?>
 </div>
 <!-- //Author Name// -->
+<?php } ?>
 
 
 <!-- Tags -->

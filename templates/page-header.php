@@ -9,7 +9,7 @@
 					<?php if ( is_page() || is_single() ) { ?>
 					<h2 class="h2-page-desc">
 						<?php if ( get_post_type($post->ID) == 'post' ) { ?>
-							<?php the_author(); ?>
+							<?php the_author_meta( 'display_name', $post->post_author ); ?>
 						<?php } elseif ( get_post_type($post->ID) == 'podcast' ) { ?>
 							<?php echo rf_media_show_name(); ?>
 						<?php } elseif ( get_post_type($post->ID) == 'book' ) { ?>

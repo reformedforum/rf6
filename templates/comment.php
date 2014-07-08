@@ -8,7 +8,8 @@
 		<div class="comment-author-name">
 			<span><?php echo get_comment_author_link(); ?></span>
 			<span class="comment-date"><?php printf(__('%1$s', 'roots'), get_comment_date(),  get_comment_time()); ?></span>
-			<a class="comment-reply" href="<?php echo htmlspecialchars(get_comment_link($comment->comment_ID)); ?>">(reply)</a>
+			<!--<a class="comment-reply" href="?replytocom=<?php echo $comment->comment_ID; ?>#respond">(reply)</a>-->
+			<span class="comment-reply">(<?php comment_reply_link(array_merge($args, array('depth' => $depth, 'max_depth' => $args['max_depth']))); ?>)</span>
 			<?php edit_comment_link(__('(Edit)', 'roots'), '', ''); ?>
 		</div>
 		<div class="comment-body">
@@ -18,7 +19,6 @@
 				</div>
 			<?php endif; ?>
 			<?php comment_text(); ?>
-			<?php comment_reply_link(array_merge($args, array('depth' => $depth, 'max_depth' => $args['max_depth']))); ?>
 		</div>
 	</div>
 </div>

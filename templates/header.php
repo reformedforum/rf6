@@ -83,79 +83,36 @@
 				
 					<ul class="navigation">
 						<li>
-							<a href="/">
+							<a href="<?php bloginfo('url'); ?>">
 								<span class="label-nav">
 									Home
 								</span>
-								<span class="label-nav-sub" data-hover="Examples">
-									Examples
+								<span class="label-nav-sub" data-hover="Get Started">
+									Get Started
 								</span>
 							</a>
-							<ul>
-								<li>
-									<a href="home-version1.html">Home version 1</a>
-								</li>
-								<li>
-									<a href="home-version2.html">Home version 2</a>
-								</li>
-								<li>
-									<a href="home-version3.html">Home version 3</a>
-								</li>
-								<li>
-									<a href="home-version4.html">Home Version 4</a>
-								</li>                                    
-								<li>
-									<a href="home-version5.html">Home Version 5</a>
-								</li>                                    
-							</ul>
 						</li>
 						<li>
-							<a href="about-us.html">
+							<a href="<?php bloginfo('url'); ?>/about">
 								<span class="label-nav">
-									Pages
+									About
 								</span>
-								<span class="label-nav-sub" data-hover="Layouts">
-									Layouts
+								<span class="label-nav-sub" data-hover="Who We Are">
+									Who We Are
 								</span>
 							</a>
 							<ul>
-								<li>
-									<a href="about-us.html"> About </a>
-								</li>
-								<li>
-									<a href="services.html"> Services </a>
-								</li>
-								<li>
-									<a href="team.html"> Our Team </a>
-								</li>
-								<li>
-									<a href="sidebar-navigation.html"> Sidebar Navigation </a>
-								</li>
-								<li>
-									<a href="faq.html"> FAQ </a>
-								</li>
-								<li>
-									<a href="contact.html">Contact Us </a>
-								</li>
-								<li>
-									<a href="sign-up.html">Sign Up </a>
-								</li>
-								<li>
-									<a href="sign-in.html">Sign In</a>
-								</li>
-								<li>
-									<a href="404.html"> 404 </a>
-								</li>
-
+								<?php wp_list_pages("title_li=&child_of=2"); ?><?php // for some reason every link has class="activelink" ?>
+								<li><a href="/network">Our Network</a></li>
 							</ul>
 						</li>
 						<li>
-							<a href="blog.html">
+							<a href="<?php bloginfo('url'); ?>/blog">
 								<span class="label-nav">
 									Blog
 								</span>
-								<span class="label-nav-sub" data-hover="The News">
-									the news
+								<span class="label-nav-sub" data-hover="Our Posts">
+									Our Posts
 								</span>
 							</a>
 							<ul>
@@ -171,73 +128,44 @@
 							</ul>
 						</li>
 						<li>
-							<a href="portfolio-two-columns.html">
+							<a href="<?php bloginfo('url'); ?>/programs">
 								<span class="label-nav">
-									Portfolio
+									Programs
 								</span>
-								<span class="label-nav-sub" data-hover="Our Work">
-									Our Work
+								<span class="label-nav-sub" data-hover="Our Podcasts">
+									Our Podcasts
 								</span>
 							</a>
 							<ul>
+						<?php	
+								$active = array(	'ctc'=>'Christ the Center',
+													'proclaimingchrist'=>'Proclaiming Christ',
+													'rmr'=>'Reformed Media Review',
+													'eastofeden'=>'East of Eden',
+													'pft'=>'Philosophy for Theologians',
+													'faithofourfathers'=>'Faith of Our Fathers',
+													'reformedclassics'=>'Reformed Classics'
+													);
+								foreach ($active as $slug => $name) { ?>
 								<li>
-									<a href="portfolio-two-columns.html">2 Column</a>
+									<a href="/programs/<?php _e($slug); ?>"><?php _e($name); ?></a>
 								</li>
-								<li>
-									<a href="portfolio-three-columns.html">3 Column</a>
-								</li>
-								<li>
-									<a href="portfolio-four-columns.html">4 Column</a>
-								</li>
-								<li>
-									<a href="portfolio-single.html">Single</a>
-								</li>
+								<?php } ?>
+								<?php /* ?>
+								<li><a href="">Retired and Inactive</a></li>
+								<?php */ ?>
 							</ul>
 						</li>
 						<li>
-							<a href="elements.html">
+							<a href="<?php bloginfo('url'); ?>/donate">
 								<span class="label-nav">
-									Shortcodes
+									Donate
 								</span>
-								<span class="label-nav-sub" data-hover="Elements">
-									Elements
+								<span class="label-nav-sub" data-hover="Give">
+									Give
 								</span>
 							</a>
-							<ul>
-								<li>
-									<a href="accordions.html">Accordions & Toggles</a>
-								</li>
-								<li>
-									<a href="columns.html">Columns</a>
-								</li>                                    
-								<li>
-									<a href="elements.html">Elements</a>
-								</li>                                    
-								<li>
-									<a href="full-block-content.html">Full Block Content</a>
-								</li>
-								<li>
-									<a href="icon-boxes.html">Icon Boxes</a>
-								</li>
-								<li>
-									<a href="icons.html">Icons</a>
-								</li>                                    
-								<li>
-									<a href="price-tables.html">Pricing Tables</a>
-								</li>                                    
-								<li>
-									<a href="tabs.html">Tabs</a>
-								</li>
-								<li>
-									<a href="testimonials.html">Testimonials</a>
-								</li>
-
-								<li>
-									<a href="typography.html">Typography</a>
-								</li>
-
-							</ul>
-						</li>
+						</li>					
 					</ul>
 
 				</nav>

@@ -15,89 +15,59 @@
 </div>
 <!-- Sidebar Block -->
 
-<?php /*
 <!-- Sidebar Block -->
 <div class="sidebar-block">
 	<h3 class="h3-sidebar-title sidebar-title">
-		tags
-	</h3>
-
-	<div class="sidebar-content tags">
-		<a href="">HTML5</a>
-		<a href="">CSS3</a>
-		<a href="">jQuery</a>
-		<a href="">JavaScript</a>
-		<a href="">WordPress</a>
-		<a href="">PHP</a>
-		<a href="">CSS</a>
-		<a href="">Social Media</a>
-		<a href="">HTML</a>
-	</div>
-</div>
-<!-- Sidebar Block -->
-*/ ?>
-
-
-<!-- Sidebar Block -->
-<div class="sidebar-block">
-	<h3 class="h3-sidebar-title sidebar-title">
-		recent posts
+		Recent Posts
 	</h3>
 
 	<div class="sidebar-content">
 		<ul class="posts-list">
+			<?php query_posts(array('showposts'=>5, 'post_type'=>array('post'), 'post__not_in'=>$usedIds)); ?>
+			<?php while (have_posts()) : the_post(); ?>	
 			<li>
 				<div class="posts-list-thumbnail">
-					<a href="">
-						<img src="<?php roots_skin_directory(); ?>/images/placeholders/blog1-thumb.jpg" alt=""  class="img-responsive"/>
+					<a href="<?php the_permalink(); ?>">
+						<?php rf_thumb('small', array('class'=>'img-responsive')); ?>
 					</a>
 				</div>
 				<div class="posts-list-content">
-					<a href="" class="posts-list-title">Sidebar post example</a>
+					<a href="<?php the_permalink(); ?>" class="posts-list-title"><?php the_title(); ?></a>
 					<span class="posts-list-meta">
-						July 30, 2013
+						<?php the_time('F jS, Y'); ?>
 					</span>
 				</div>
 			</li>
+			<?php endwhile; ?>
+		</ul>
+	</div>
+</div>
+<!-- Sidebar Block -->
+
+<!-- Sidebar Block -->
+<div class="sidebar-block">
+	<h3 class="h3-sidebar-title sidebar-title">
+		Recent Episodes
+	</h3>
+
+	<div class="sidebar-content">
+		<ul class="posts-list">
+			<?php query_posts(array('showposts'=>5, 'post_type'=>array('podcast'), 'post__not_in'=>$usedIds)); ?>
+			<?php while (have_posts()) : the_post(); ?>	
 			<li>
 				<div class="posts-list-thumbnail">
-					<a href="">
-						<img src="<?php roots_skin_directory(); ?>/images/placeholders/blog2-thumb.jpg" alt=""  class="img-responsive"/>
+					<a href="<?php the_permalink(); ?>">
+						<?php rf_thumb('small', array('class'=>'img-responsive')); ?>
 					</a>
 				</div>
 				<div class="posts-list-content">
-					<a href="" class="posts-list-title">Sidebar post example</a>
+					<a href="<?php the_permalink(); ?>" class="posts-list-title"><?php the_title(); ?></a>
 					<span class="posts-list-meta">
-						July 30, 2013
+						<?php the_time('F jS, Y'); ?>
 					</span>
 				</div>
 			</li>
-			<li>
-				<div class="posts-list-thumbnail">
-					<a href="">
-						<img src="<?php roots_skin_directory(); ?>/images/placeholders/blog3-thumb.jpg" alt=""  class="img-responsive"/>
-					</a>
-				</div>
-				<div class="posts-list-content">
-					<a href="" class="posts-list-title">Sidebar post example</a>
-					<span class="posts-list-meta">
-						July 30, 2013
-					</span>
-				</div>
-			</li>
-			<li>
-				<div class="posts-list-thumbnail">
-					<a href="">
-						<img src="<?php roots_skin_directory(); ?>/images/placeholders/blog4-thumb.jpg" alt=""  class="img-responsive"/>
-					</a>
-				</div>
-				<div class="posts-list-content">
-					<a href="" class="posts-list-title">Sidebar post example</a>
-					<span class="posts-list-meta">
-						July 30, 2013
-					</span>
-				</div>
-			</li>
+			<?php endwhile; ?>
 		</ul>
 	</div>
 </div>

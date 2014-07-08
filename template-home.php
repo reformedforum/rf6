@@ -4,9 +4,23 @@ Template Name: Home
 */
 ?>
 
-<?php // get_template_part('templates/content', 'page'); ?>
+<?php 
+	global $usedIds;
+	$usedIds = array(); /* array to keep track of posts that have already been displayed */ 
+?>
+
+<?php get_template_part('templates/elements/slider'); ?>
+
+<div class="loading-container">
+	<div class="spinner">
+		<div class="double-bounce1"></div>
+		<div class="double-bounce2"></div>
+	</div>
+</div>
 
 <div class="content-wrapper hide-until-loading">
+
+	<?php // get_template_part('templates/content', 'page'); ?>
 
 	<div class="section-content top-body">
 		<div class="container">
@@ -19,8 +33,33 @@ Template Name: Home
 						 data-animdelay="0.2s"
 						 >
 						<h4 class="h4-body-title">
-							<i class="icon-settings-streamline"></i>
-							Fully Customizable
+							<i class="icon-study"></i>
+							Learn
+						</h4>
+						<div class="content-box-text">
+							Cras sem erat, aliquet in egestas cursus, ullamcorper vitae
+							ligula. Nunc commodo lacinia eros ac condimentum
+
+							<div>
+								<a href="/resources" class=" btn btn-sm">
+									<span>read more</span>
+								</a>
+							</div>
+
+						</div>
+
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-3"> 
+					<div class="content-box content-style4 medium animated"
+						 data-animtype="fadeIn"
+						 data-animrepeat="0"
+						 data-animspeed="1s"
+						 data-animdelay="0.2s"
+						 >
+						<h4 class="h4-body-title">
+							<i class="icon-like-love-streamline"></i>
+							Share
 						</h4>
 						<div class="content-box-text">
 							Cras sem erat, aliquet in egestas cursus, ullamcorper vitae
@@ -44,15 +83,15 @@ Template Name: Home
 						 data-animdelay="0.2s"
 						 >
 						<h4 class="h4-body-title">
-							<i class="icon-camera-streamline-video"></i>
-							Animation Ready
+							<i class="icon-user-outline"></i>
+							Interact
 						</h4>
 						<div class="content-box-text">
 							Cras sem erat, aliquet in egestas cursus, ullamcorper vitae
 							ligula. Nunc commodo lacinia eros ac condimentum
 
 							<div>
-								<a href="#" class=" btn btn-sm">
+								<a href="/events" class=" btn btn-sm">
 									<span>read more</span>
 								</a>
 							</div>
@@ -69,40 +108,15 @@ Template Name: Home
 						 data-animdelay="0.2s"
 						 >
 						<h4 class="h4-body-title">
-							<i class="icon-computer-imac"></i>
-							Responsive Design
+							<i class="icon-banknote"></i>
+							Donate
 						</h4>
 						<div class="content-box-text">
 							Cras sem erat, aliquet in egestas cursus, ullamcorper vitae
 							ligula. Nunc commodo lacinia eros ac condimentum
 
 							<div>
-								<a href="#" class=" btn btn-sm">
-									<span>read more</span>
-								</a>
-							</div>
-
-						</div>
-
-					</div>
-				</div>
-				<div class="col-md-3 col-sm-3"> 
-					<div class="content-box content-style4 medium animated"
-						 data-animtype="fadeIn"
-						 data-animrepeat="0"
-						 data-animspeed="1s"
-						 data-animdelay="0.2s"
-						 >
-						<h4 class="h4-body-title">
-							<i class="icon-paint-bucket-streamline"></i>
-							Unlimited Skins
-						</h4>
-						<div class="content-box-text">
-							Cras sem erat, aliquet in egestas cursus, ullamcorper vitae
-							ligula. Nunc commodo lacinia eros ac condimentum
-
-							<div>
-								<a href="#" class=" btn btn-sm">
+								<a href="/donate" class=" btn btn-sm">
 									<span>read more</span>
 								</a>
 							</div>
@@ -118,6 +132,7 @@ Template Name: Home
 	</div>
 	<div class="body-wrapper">
 
+	<?php /* Portfolio
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 col-sm-12 animated" data-animtype="flipInY"
@@ -139,253 +154,230 @@ Template Name: Home
 			<div class="row">
 				<div class="col-md-12 col-sm-12">
 					<div class="portfolio-items">
+					
+					<?php query_posts(array('showposts'=>8, 'post_type'=>array('post', 'podcast'), 'post__not_in'=>$usedIds)); ?>
+						
+						<?php $datadelay = 0.6; ?>
+						
+						<?php while (have_posts()) : the_post(); ?>
 
 						<!-- Portfolio Item -->
 						<div class="thumb-label-item animated branding"
 							 data-animtype="fadeInUp"
 							 data-animrepeat="0"
 							 data-speed="1s"
-							 data-delay="0.6s">
+							 data-delay="<?php echo $datadelay; ?>s">
 							<div class="img-overlay thumb-label-item-img">
-								<img
-									src="<?php roots_skin_directory(); ?>/images/placeholders/portfolio1.jpg"
-									alt=""/>
 
+								<?php if ( has_post_thumbnail() ) {
+									the_post_thumbnail('medium');
+								} ?>
+
+								<?php // media file overlay. This can be a photo, video (YouTube or maybe a Vimeo link), and possibly and audio file. ?>
 								<div class="item-img-overlay">
 									<a class="portfolio-zoom fa fa-plus"
 									   href="http://www.youtube.com/watch?v=mcw6j-QWGMo"
-									   data-rel="prettyPhoto[portfolio]" title="Title goes here"></a>
+									   data-rel="prettyPhoto[portfolio]" title="<?php echo roots_title(); ?>"></a>
 
 									<div class="item_img_overlay_content">
 										<h3 class="thumb-label-item-title">
-											<a href=""> Aenean llus mtus </a>
+											<a href="">Aenean llus mtus</a>
 										</h3>
 									</div>
 
 								</div>
 							</div>
 
-
 						</div>
 						<!-- //Portfolio Item// -->
-						<!-- Portfolio Item -->
-						<div class="thumb-label-item animated seo"
-							 data-animtype="fadeInUp"
-							 data-animrepeat="0"
-							 data-speed="1s"
-							 data-delay="0.8s">
-							<div class="img-overlay thumb-label-item-img">
-								<img
-									src="<?php roots_skin_directory(); ?>/images/placeholders/portfolio2.jpg"
-									alt=""/>
-
-								<div class="item-img-overlay">
-									<a class="portfolio-zoom fa fa-plus"
-									   href="<?php roots_skin_directory(); ?>/images/placeholders/portfolio2.jpg"
-									   data-rel="prettyPhoto[portfolio]" title="Title goes here"></a>
-
-									<div class="item_img_overlay_content">
-										<h3 class="thumb-label-item-title">
-											<a href=""> Donec vitae sapien </a>
-										</h3>
-									</div>
-
-								</div>
-							</div>
-
-
-						</div>
-						<!-- //Portfolio Item// -->
-						<!-- Portfolio Item -->
-						<div class="thumb-label-item animated web-design"
-							 data-animtype="fadeInUp"
-							 data-animrepeat="0"
-							 data-speed="1s"
-							 data-delay="1s">
-							<div class="img-overlay thumb-label-item-img">
-								<img
-									src="<?php roots_skin_directory(); ?>/images/placeholders/portfolio3.jpg"
-									alt=""/>
-
-								<div class="item-img-overlay">
-									<a class="portfolio-zoom fa fa-plus"
-									   href="<?php roots_skin_directory(); ?>/images/placeholders/portfolio3.jpg"
-									   data-rel="prettyPhoto[portfolio]" title="Title goes here"></a>
-
-									<div class="item_img_overlay_content">
-										<h3 class="thumb-label-item-title">
-											<a href=""> Maecas nec odio </a>
-										</h3>
-									</div>
-
-								</div>
-							</div>
-
-
-						</div>
-						<!-- //Portfolio Item// -->
-						<!-- Portfolio Item -->
-						<div class="thumb-label-item animated videos"
-							 data-animtype="fadeInUp"
-							 data-animrepeat="0"
-							 data-speed="1s"
-							 data-delay="1.2s">
-							<div class="img-overlay thumb-label-item-img">
-								<img
-									src="<?php roots_skin_directory(); ?>/images/placeholders/portfolio4.jpg"
-									alt=""/>
-
-								<div class="item-img-overlay">
-									<a class="portfolio-zoom fa fa-plus"
-									   href="<?php roots_skin_directory(); ?>/images/placeholders/portfolio4.jpg"
-									   data-rel="prettyPhoto[portfolio]" title="Title goes here"></a>
-
-									<div class="item_img_overlay_content">
-										<h3 class="thumb-label-item-title">
-											<a href=""> Vestibum friilla </a>
-										</h3>
-									</div>
-
-								</div>
-							</div>
-
-
-						</div>
-						<!-- //Portfolio Item// -->
-						<!-- Portfolio Item -->
-						<div class="thumb-label-item animated web-design"
-							 data-animtype="fadeInUp"
-							 data-animrepeat="0"
-							 data-speed="1s"
-							 data-delay="1.4s">
-							<div class="img-overlay thumb-label-item-img">
-								<img
-									src="<?php roots_skin_directory(); ?>/images/placeholders/portfolio5.jpg"
-									alt=""/>
-
-								<div class="item-img-overlay">
-									<a class="portfolio-zoom fa fa-plus"
-									   href="<?php roots_skin_directory(); ?>/images/placeholders/portfolio5.jpg"
-									   data-rel="prettyPhoto[portfolio]" title="Title goes here"></a>
-
-									<div class="item_img_overlay_content">
-										<h3 class="thumb-label-item-title">
-											<a href=""> Curatur lula </a>
-										</h3>
-									</div>
-
-								</div>
-							</div>
-
-
-						</div>
-						<!-- //Portfolio Item// -->
-						<!-- Portfolio Item -->
-						<div class="thumb-label-item animated web-design"
-							 data-animtype="fadeInUp"
-							 data-animrepeat="0"
-							 data-speed="1s"
-							 data-delay="1.6s">
-							<div class="img-overlay thumb-label-item-img">
-								<img
-									src="<?php roots_skin_directory(); ?>/images/placeholders/portfolio6.jpg"
-									alt=""/>
-
-								<div class="item-img-overlay">
-									<a class="portfolio-zoom fa fa-plus"
-									   href="<?php roots_skin_directory(); ?>/images/placeholders/portfolio6.jpg"
-									   data-rel="prettyPhoto[portfolio]" title="Title goes here"></a>
-
-									<div class="item_img_overlay_content">
-										<h3 class="thumb-label-item-title">
-											<a href=""> Pellentesque </a>
-										</h3>
-									</div>
-
-								</div>
-							</div>
-
-
-						</div>
-						<!-- //Portfolio Item// -->
-						<!-- Portfolio Item -->
-						<div class="thumb-label-item animated web-design"
-							 data-animtype="fadeInUp"
-							 data-animrepeat="0"
-							 data-speed="1s"
-							 data-delay="1.8s">
-							<div class="img-overlay thumb-label-item-img">
-								<img
-									src="<?php roots_skin_directory(); ?>/images/placeholders/portfolio7.jpg"
-									alt=""/>
-
-								<div class="item-img-overlay">
-									<a class="portfolio-zoom fa fa-plus"
-									   href="http://www.youtube.com/watch?v=mcw6j-QWGMo"
-									   data-rel="prettyPhoto[portfolio]" title="Title goes here"></a>
-
-									<div class="item_img_overlay_content">
-										<h3 class="thumb-label-item-title">
-											<a href=""> In enim justo </a>
-										</h3>
-									</div>
-
-								</div>
-							</div>
-
-
-						</div>
-						<!-- //Portfolio Item// -->
-						<!-- Portfolio Item -->
-						<div class="thumb-label-item animated videos"
-							 data-animtype="fadeInUp"
-							 data-animrepeat="0"
-							 data-speed="1s"
-							 data-delay="2s">
-							<div class="img-overlay thumb-label-item-img">
-								<img
-									src="<?php roots_skin_directory(); ?>/images/placeholders/portfolio8.jpg"
-									alt=""/>
-
-								<div class="item-img-overlay">
-									<a class="portfolio-zoom fa fa-plus"
-									   href="<?php roots_skin_directory(); ?>/images/placeholders/portfolio8.jpg"
-									   data-rel="prettyPhoto[portfolio]" title="Title goes here"></a>
-
-									<div class="item_img_overlay_content">
-										<h3 class="thumb-label-item-title">
-											<a href=""> Lutus puvinar </a>
-										</h3>
-									</div>
-
-								</div>
-							</div>
-
-
-						</div>
-						<!-- //Portfolio Item// -->
-
-
+						
+						<?php $datadelay = $datadelay + 0.2; ?>
+						
+						<?php endwhile; ?>
+				
 					</div>
 				</div>
 			</div>
 
 		</div>
 		<div class="space-sep40"></div>
+		
+*/ ?>
 
+ 					<div class="container">
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 animated" data-animtype="fadeInUp"
+                                 data-animrepeat="0"
+                                 data-speed="1s"
+                                 data-delay="0.4s">
+                                <h2 class="h2-section-title">Featured Episodes &amp; Posts</h2>
+                                <div class="i-section-title">
+                                    <i class="icon-ink-pen-streamline">
+
+                                    </i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="space-sep20"></div>
+                        <div class="row">
+                        	<?php query_posts(array('showposts'=>3, 'post_type'=>array('post','podcast'), 'post__not_in'=>$usedIds)); ?>
+                        	<?php $datadelay = 0; ?>
+							<?php while (have_posts()) : the_post(); ?>
+                            <div class="col-md-3 col-sm-3">
+                                <div class="feature animated" data-animtype="fadeInLeft"
+                                     data-animrepeat="0"
+                                     data-speed="1s"
+                                     data-delay="<?php echo $datadelay; ?>s">
+                                    <div class="feature-image img-overlay">
+                                    	<?php if ( has_post_thumbnail() ) {
+											the_post_thumbnail(array(263, 263), array('class'=>'img-responsive'));
+										} ?>
+
+										<?php /*
+                                        <div class="item-img-overlay">
+                                            <a class="portfolio-zoom fa fa-plus" href="images/placeholders/feature1.jpg"
+                                               data-rel="prettyPhoto[portfolio]" title="Title goes here"></a>
+                                        </div>
+                                        */ ?>
+
+                                    </div>
+
+                                    <div class="feature-content">
+                                        <h3 class="h3-body-title">
+                                        	<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                                        </h3>
+
+                                        <p>
+                                            <?php the_excerpt(); ?>
+                                        </p>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <?php $datadelay = $datadelay + 0.2; ?>
+                            <?php endwhile; ?>
+                            <div class="col-md-3 col-sm-3 animated" data-animtype="fadeInRight"
+                                 data-animrepeat="0"
+                                 data-speed="1s"
+                                 data-delay="0.5s">
+                                <div class="accordion accordion2" data-toggle="off" data-active-index="0">
+
+
+                                    <div class="accordion-row">
+
+                                        <div class="title">
+                                            <div class="open-icon"></div>
+                                            <h4>Podcasts</h4>
+                                        </div>
+                                        <div class="desc">Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut.  imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.Duis leo. </div>
+                                    </div>
+
+
+                                    <div class="accordion-row">
+
+                                        <div class="title">
+                                            <div class="open-icon"></div>
+                                            <h4>Blog Posts</h4>
+                                        </div>
+                                        <div class="desc">Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer.</div>
+                                    </div>
+
+
+                                    <div class="accordion-row">
+
+                                        <div class="title">
+                                            <div class="open-icon"></div>
+                                            <h4>Books</h4>
+                                        </div>
+                                        <div class="desc">Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante.</div>
+                                    </div>
+
+
+                                </div>            
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="container">
+                        <div class="space-sep20"></div>
+                        <div class="divider divider-shadow"></div>
+                        <div class="space-sep20"></div>
+                    </div>
+
+
+			<div class="container">
+
+				<div class="row">
+					<div class="col-md-12 col-sm-12 animated" data-animtype="fadeInUp"
+						 data-animrepeat="0"
+						 data-speed="1s"
+						 data-delay="0.4s">
+						<h2 class="h2-section-title">Take A Closer Look</h2>
+
+						<div class="i-section-title">
+							<i class="icon-zoom-in">
+							</i>
+						</div>
+
+						<h3 class="h3-section-info">
+							Are you new to Reformed Forum? Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+							laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et
+							quasi architecto beatae vitae dicta sunt explicabo.
+						</h3>
+					</div>
+
+				</div>
+
+				<div class="row">
+					<div class="col-md-12 col-sm-12 no-bottom-margin animated" data-animtype="fadeInUp"
+						 data-animrepeat="0"
+						 data-animspeed="1s"
+						 data-animdelay="0.7s">
+						<img src="<?php roots_skin_directory(); ?>/images/placeholders/responsive-mockup2-placeholder.png" alt="MockUp" class="img-responsive" />
+					</div>
+				</div>
+			</div>
+
+			<div class="space-sep40"></div>
+
+			<div class="container">
+
+				<div class="row animated" data-animtype="fadeInUp"
+					 data-animrepeat="0"
+					 data-speed="1s"
+					 data-delay="0.5s">
+
+					<div class="col-md-12 col-sm-12">
+						<h4 class="h4-section-title center-text">Subscribe To Our NewsLetter</h4>
+						<div class="section-subscribe">
+							<form action="#" method="post">
+								<input type="text" name="q" class="subscribe-input text-input" placeholder="Email..."/>
+								<button class="subscribe-button icon-email-plane">
+
+								</button>
+							</form>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+        
+        <!---
 		<div class="section-content section-tabs section-px stones-bg white-text">
 			<div class="tab-container">
 				<div class="section-tab-arrow"></div>
 				<div class="section-etabs-container">
 					<ul class="section-etabs">
 						<li class="tab active">
-							<a href="#tabc1"> Our News</a>
+							<a href="#tabc1">Recent Episodes</a>
 						</li>
 						<li class="tab">
-							<a href="#tabc2"> Clients</a>
+							<a href="#tabc2">Clients</a>
 						</li>
 						<li class="tab">
-							<a href="#tabc3"> NewsLetter</a>
+							<a href="#tabc3">NewsLetter</a>
 						</li>
 					</ul>
 				</div>
@@ -395,167 +387,50 @@ Template Name: Home
 
 						<div id="tabc1">
 							<div class="row">
+								<?php query_posts(array('showposts'=>4, 'post_type'=>array('podcast'), 'post__not_in'=>$usedIds)); ?>
+								<?php while (have_posts()) : the_post(); ?>	
 								<div class="col-md-3 col-sm-3">
 									<div class="feature animated" data-animtype="fadeInUp" data-animrepeat="0" data-animspeed="1s" data-animdelay="0.4s">
 										<div class="feature-image img-overlay">
-											<img src="<?php roots_skin_directory(); ?>/images/placeholders/blog1.jpg" alt="Blog">
+										
+											<?php rf_thumb(); ?>
 
+											<?php /*
 											<div class="item-img-overlay">
 												<a class="portfolio-zoom fa fa-plus" href="<?php roots_skin_directory(); ?>/images/placeholders/blog1.jpg"
 												   data-rel="prettyPhoto[portfolio]" title="Title goes here"></a>
-
 											</div>
+											*/ ?>
 
 										</div>
 
 										<div class="feature-content">
 											<h3 class="h3-body-title blog-title">
-												<a href="">Vix sumo ferri an</a>
+												<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
 											</h3>
 											<p>
-												Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a [...]
+												<?php the_excerpt(); ?>
 											</p>
-
-
 
 										</div>
 
 										<div class="feature-details">
 											<i class="icon-calendar"></i>
-											<span>July 10, 2013</span>
+											<span><?php the_time('F jS, Y'); ?></span>
 											<span class="details-seperator"></span>
 
-											<a href="#"><i class="icon-comment"></i><span>4</span></a>
-
+											<a href="<?php comments_link(); ?>"><i class="icon-comment"></i><span><?php comments_number('No Responses', '1 Response', '% Responses'); ?></span></a>
 
 											<div class="feature-share">
-												<a href="#"><i class="icon-heart"></i></a>
+												<a href="#"><i class="icon-twitter"></i></a>
 												<a href="#"><i class="icon-facebook"></i></a>
 											</div>
 										</div>        
 									</div>
 								</div>
-								<div class="col-md-3 col-sm-3">
-									<div class="feature animated" data-animtype="fadeInUp" data-animrepeat="0" data-animspeed="1s" data-animdelay="0.6s">
-										<div class="feature-image img-overlay">
-											<img src="<?php roots_skin_directory(); ?>/images/placeholders/blog2.jpg" alt="Blog">
-
-											<div class="item-img-overlay">
-												<a class="portfolio-zoom fa fa-plus" href="<?php roots_skin_directory(); ?>/images/placeholders/blog2.jpg"
-												   data-rel="prettyPhoto[portfolio]" title="Title goes here"></a>
-
-											</div>
-
-										</div>
-
-										<div class="feature-content">
-											<h3 class="h3-body-title blog-title">
-												<a href="">Donec vitae sapien</a>
-											</h3>
-											<p>
-												Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a [...]
-											</p>
-
-
-
-										</div>
-
-										<div class="feature-details">
-											<i class="icon-calendar"></i>
-											<span>July 10, 2013</span>
-											<span class="details-seperator"></span>
-
-											<a href="#"><i class="icon-comment"></i><span>4</span></a>
-
-
-											<div class="feature-share">
-												<a href="#"><i class="icon-heart"></i></a>
-												<a href="#"><i class="icon-facebook"></i></a>
-											</div>
-										</div>        
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-3">
-									<div class="feature animated" data-animtype="fadeInUp" data-animrepeat="0" data-animspeed="1s" data-animdelay="0.8s">
-										<div class="feature-image img-overlay">
-											<img src="<?php roots_skin_directory(); ?>/images/placeholders/blog3.jpg" alt="Blog">
-
-											<div class="item-img-overlay">
-												<a class="portfolio-zoom fa fa-plus" href="<?php roots_skin_directory(); ?>/images/placeholders/blog3.jpg"
-												   data-rel="prettyPhoto[portfolio]" title="Title goes here"></a>
-
-											</div>
-
-										</div>
-
-										<div class="feature-content">
-											<h3 class="h3-body-title blog-title">
-												<a href="">Aenean tellus metus</a>
-											</h3>
-											<p>
-												Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a [...]
-											</p>
-
-
-
-										</div>
-
-										<div class="feature-details">
-											<i class="icon-calendar"></i>
-											<span>July 10, 2013</span>
-											<span class="details-seperator"></span>
-
-											<a href="#"><i class="icon-comment"></i><span>4</span></a>
-
-
-											<div class="feature-share">
-												<a href="#"><i class="icon-heart"></i></a>
-												<a href="#"><i class="icon-facebook"></i></a>
-											</div>
-										</div>        
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-3">
-									<div class="feature animated" data-animtype="fadeInUp" data-animrepeat="0" data-animspeed="1s" data-animdelay="1s">
-										<div class="feature-image img-overlay">
-											<img src="<?php roots_skin_directory(); ?>/images/placeholders/blog4.jpg" alt="Blog">
-
-											<div class="item-img-overlay">
-												<a class="portfolio-zoom fa fa-plus" href="<?php roots_skin_directory(); ?>/images/placeholders/blog4.jpg"
-												   data-rel="prettyPhoto[portfolio]" title="Title goes here"></a>
-
-											</div>
-
-										</div>
-
-										<div class="feature-content">
-											<h3 class="h3-body-title blog-title">
-												<a href="">Aenean tellus metus</a>
-											</h3>
-											<p>
-												Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a [...]
-											</p>
-
-
-
-										</div>
-
-										<div class="feature-details">
-											<i class="icon-calendar"></i>
-											<span>July 10, 2013</span>
-											<span class="details-seperator"></span>
-
-											<a href="#"><i class="icon-comment"></i><span>4</span></a>
-
-
-											<div class="feature-share">
-												<a href="#"><i class="icon-heart"></i></a>
-												<a href="#"><i class="icon-facebook"></i></a>
-											</div>
-										</div>        
-									</div>
-								</div>
-							</div>            </div>
+								<?php endwhile; ?>
+							</div>            
+						</div>
 						<div id="tabc2">
 							<div class="row">
 								<div class="col-md-12 col-sm-12">
@@ -570,7 +445,8 @@ Template Name: Home
 										<li class="animated" data-animtype="bounceIn" data-animrepeat="0" data-animdelay="0.6s"><img src="<?php roots_skin_directory(); ?>/images/placeholders/clients/white_logo5.png" alt="Logo" class="img-responsive client-image" /></li>
 									</ul>
 								</div>
-							</div>            </div>
+							</div>           
+						</div>
 						<div id="tabc3">
 							<h2 class="h2-section-title animated" data-animtype="flipInY"
 								data-animrepeat="0"
@@ -583,7 +459,7 @@ Template Name: Home
 								 data-speed="1s"
 								 data-delay="0.5s">
 								<form action="#" method="post">
-									<input type="text" name="q" class="subscribe-input text-input" placeholder="Email.."/>
+									<input type="text" name="q" class="subscribe-input text-input" placeholder="Email..."/>
 									<button class="subscribe-button icon-email-plane">
 
 									</button>
@@ -609,58 +485,54 @@ Template Name: Home
 						</div>
 					</div>
 				</div>
-			</div>    </div>
-
-		<div class="section-content no-padding">
-
-
+			</div>    
+		</div>
+		
+		<div class="space-sep40"></div>
+		--->
+		
+		<!---
+		<div class="section-content section-color-red white-text">
 			<div class="container">
-
 				<div class="row">
-					<div class="col-md-12 col-sm-12 animated" data-animtype="fadeInUp"
+					<div class="col-md-6 col-sm-6 animated " data-animtype="fadeInLeftBig"
 						 data-animrepeat="0"
 						 data-speed="1s"
 						 data-delay="0.4s">
-						<h2 class="h2-section-title">Take A Closer Look</h2>
+						<div class="space-sep100"></div>
 
-						<div class="i-section-title">
-							<i class="icon-zoom-in">
 
-							</i>
-						</div>
-
-						<h3 class="h3-section-info">
-							Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-							laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et
-							quasi architecto beatae vitae dicta sunt explicabo.
-						</h3>
+						<h2 class="h2-section-title">Full Block Color Background</h2>
+						<h3 class="h3-section-info">Lorem ipsum dolor sit amet, in pri offendit ocurreret. Vix sumo ferri an. pfs adodio fugit delenit ut qui. Omittam suscipiantur ex  vel,ex audiam  intellegat gfIn labitur discere eos, nam an feugiat voluptua.</h3>
 					</div>
 
-				</div>
-
-				<div class="row">
-					<div class="col-md-12 col-sm-12 no-bottom-margin animated" data-animtype="fadeInUp"
+					<div class="col-md-6 col-sm-6 animated " data-animtype="fadeInRightBig"
 						 data-animrepeat="0"
-						 data-animspeed="1s"
-						 data-animdelay="0.7s">
-						<img src="<?php roots_skin_directory(); ?>/images/placeholders/responsive-mockup2-placeholder.png" alt="MockUp" class="img-responsive" />
+						 data-speed="1s"
+						 data-delay="0.4s">
+						<div class="right-image-container">
+							<img src=<?php roots_skin_directory(); ?>/images/placeholders/screens-mockup-placeholder.png alt="MockUp"/>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+		--->
+		
 
-		<div class="space-sep40"></div>
-
+		
+		<div class="section-content bottom-body">
+		
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 col-sm-12 animated" data-animtype="fadeInUp"
 					 data-animrepeat="0"
 					 data-speed="1s"
 					 data-delay="0.4s">
-					<h2 class="h2-section-title">What We Offer</h2>
+					<h2 class="h2-section-title">The Theological Encyclopedia</h2>
 
 					<div class="i-section-title">
-						<i class="icon-drive">
+						<i class="icon-study">
 						</i>
 					</div>
 				</div>
@@ -678,9 +550,9 @@ Template Name: Home
 								 data-animdelay="0.2s"
 								 >
 								<h4 class="h4-body-title">
-									<strong>Responsive </strong> Design            
+									<strong>New</strong> Testament            
 
-									<i class="icon-ipad"></i>
+									<i class="icon-book-read-streamline"></i>
 								</h4>
 								<div class="content-box-text">
 									<p> 
@@ -700,9 +572,9 @@ Template Name: Home
 								 data-animdelay="0.2s"
 								 >
 								<h4 class="h4-body-title">
-									<strong>Very </strong> Flexible            
+									<strong>Systematic</strong> Theology           
 
-									<i class="icon-settings"></i>
+									<i class="icon-world"></i>
 								</h4>
 								<div class="content-box-text">
 									<p> 
@@ -722,9 +594,9 @@ Template Name: Home
 								 data-animdelay="0.2s"
 								 >
 								<h4 class="h4-body-title">
-									<strong>Unlimited </strong> Skins            
+									<strong>Apologetics</strong> &amp; <strong>Philosophy</strong>            
 
-									<i class="icon-painting-roll-streamline"></i>
+									<i class="icon-cloud"></i>
 								</h4>
 								<div class="content-box-text">
 									<p> 
@@ -744,9 +616,9 @@ Template Name: Home
 								 data-animdelay="0.2s"
 								 >
 								<h4 class="h4-body-title">
-									<strong>Well </strong> Documented            
+									<strong>Practical</strong> Theology            
 
-									<i class="icon-file-settings"></i>
+									<i class="icon-coffee-streamline"></i>
 								</h4>
 								<div class="content-box-text">
 									<p> 
@@ -771,9 +643,8 @@ Template Name: Home
 								 data-animdelay="0.2s"
 								 >
 								<h4 class="h4-body-title">
-									<strong>Retina </strong> Ready            
-
-									<i class="icon-eye"></i>
+									<strong>Old</strong> Testament             
+									<i class="icon-fire"></i>
 								</h4>
 								<div class="content-box-text">
 									<p> 
@@ -793,9 +664,8 @@ Template Name: Home
 								 data-animdelay="0.2s"
 								 >
 								<h4 class="h4-body-title">
-									<strong>Multi </strong> Purpose            
-
-									<i class="icon-world"></i>
+										<strong>Biblical</strong> Theology
+										<a href=""><i class="icon-eye"></i></a>
 								</h4>
 								<div class="content-box-text">
 									<p> 
@@ -815,9 +685,9 @@ Template Name: Home
 								 data-animdelay="0.2s"
 								 >
 								<h4 class="h4-body-title">
-									<strong>Animation </strong> Ready            
+									<strong>Church</strong> History            
 
-									<i class="fa fa-film"></i>
+									<i class="icon-clock-streamline-time"></i>
 								</h4>
 								<div class="content-box-text">
 									<p> 
@@ -837,9 +707,9 @@ Template Name: Home
 								 data-animdelay="0.2s"
 								 >
 								<h4 class="h4-body-title">
-									<strong>Latest </strong> Technology            
+									<strong>Family</strong> &amp; <strong>Education</strong>            
 
-									<i class="icon-lab"></i>
+									<i class="icon-user-outline"></i>
 								</h4>
 								<div class="content-box-text">
 									<p> 
@@ -855,10 +725,12 @@ Template Name: Home
 
 			</div>
 		</div>
+		
+		</div>
 
 	</div>
 
-	<?php get_template_part('templates/elements/testimonial'); ?>
+	<?php //get_template_part('templates/elements/testimonial'); ?>
 
 </div>
 
