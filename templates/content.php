@@ -64,12 +64,22 @@
 				</div>
 				*/ ?>
 			<?php default: ?>
-				<div class="blog-post-featured-img img-overlay">
-
+				<?php 
+					$wide = rf_thumb_wide_check(); 
+					$size = 'thumbnail';
+					$class = '';
+				?>
+				<div class="blog-post-featured-img<?php if ( $wide ) { ?> img-overlay<?php } else { ?>-sm<?php } ?>">
+					<?php 
+						if ($wide) { $class = 'img-responsive'; $size = 'content'; }
+						rf_thumb($size, array('class'=>$class)); 
+					?>
 					<?php if ( has_post_thumbnail() ) {
-						the_post_thumbnail('content', array('class'=>'img-responsive'));
+						//the_post_thumbnail('content', array('class'=>'img-responsive'));
+						//the_post_thumbnail('thumbnail', array('class'=>'img-responsive'));
 					} ?>
-
+					
+					<?php if ($wide) { ?>
 					<div class="item-img-overlay">
 				
 						<?php /* if ( has_post_thumbnail() )  { // This is that plus sign overlay thing.
@@ -91,6 +101,7 @@
 							</div>                        
 						</div>
 					</div>
+					<?php } ?>
 				</div>
 			<?php } ?>
 		<h2>

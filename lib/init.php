@@ -17,8 +17,7 @@ function roots_setup() {
   // add_image_size('category-thumb', 300, 9999); // 300px wide (and unlimited height)
   add_image_size('small', 54, 54, true);
   add_image_size('slider', 2000, 500, true);
-  add_image_size('content', 768, 200, true);
-  add_image_size('content-single', 768, 400, true);
+  add_image_size('content', 768, 400, true);
 
   // Add post formats (http://codex.wordpress.org/Post_Formats)
   add_theme_support( 'post-formats', array( 'gallery', 'link', 'quote', 'video', 'audio' ) );

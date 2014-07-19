@@ -6,18 +6,30 @@
 	<?php get_template_part('templates/elements/icon'); ?>
 
 	<div class="blog-span">
-		<div class="blog-post-featured-img img-overlay">
-
-			<?php if ( has_post_thumbnail() ) { the_post_thumbnail('content-single', array('class'=>'img-responsive')); } ?>
-
+		<?php 
+			$wide = rf_thumb_wide_check(); 
+			$size = 'full';
+			$class = '';
+		?>
+		<div class="blog-post-featured-img<?php if ( $wide ) { ?> img-overlay<?php } else { ?>-sm<?php } ?>">
+			<?php 
+				if ($wide) { $class = 'img-responsive'; $size = 'content'; }
+				rf_thumb($size, array('class'=>$class)); 
+			?>
+			<?php if ( has_post_thumbnail() ) {
+				//the_post_thumbnail('content', array('class'=>'img-responsive'));
+				//the_post_thumbnail('thumbnail', array('class'=>'img-responsive'));
+			} ?>
+			
+			<?php if ($wide) { ?>
 			<div class="item-img-overlay">
-				
+		
 				<?php /* if ( has_post_thumbnail() )  { // This is that plus sign overlay thing.
 					$post_thumbnail_id = get_post_thumbnail_id();
 					$post_thumbnail_url = wp_get_attachment_url( $post_thumbnail_id ); ?>
 					<img src="<?php echo $post_thumbnail_url; ?>" alt="" class="portfolio-zoom fa fa-plus" data-rel="prettyPhoto[portfolio]" height="auto" width="100%"/>
 				<?php } */ ?>
-							                    
+										
 				<div class="item_img_overlay_content">
 					<div class="blog-post-details-item blog-post-details-item-left share-article">
 						<span>Share It On</span>
@@ -31,10 +43,13 @@
 					</div>                        
 				</div>
 			</div>
+			<?php } ?>
 		</div>
+		<?php if ($wide) { ?>
 		<h2>
 			<?php the_title(); ?>
 		</h2>
+		<?php } ?>
 
 		<div class="blog-post-body">
 			<?php if ( get_post_type($post->ID) == 'podcast' ) { ?>

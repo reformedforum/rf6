@@ -92,6 +92,7 @@
 							Recent Tweets
 						</div>
 						<div class="footer-content footer-recent-tweets-container">
+						<?php /*
 							<ul class="tweetList footer-recent-tweets">
 								<li class="tweet_content item">
 									<p>Grab a copy of the popular Boomerang theme for $10 until its next release! </p>
@@ -102,25 +103,10 @@
 									<p class="timestamp">4 days ago</p>
 								</li>
 							</ul>
+						*/ ?>
 						</div>
 					</div>
 					<!-- //Footer Col.// -->
-
-					<?php /*
-					<!-- Footer Col. -->
-					<div class="col-md-3 col-sm-3 footer-col">
-						<div class="footer-title">
-							Photostream
-						</div>
-						<div class="footer-content">
-							<div class="flickr_badge_wrapper">
-								<script type="text/javascript" src="http://www.flickr.com/badge_code_v2.gne?count=9&display=latest&size=s&layout=x&source=all_tag&tag=Sky,scrappers" id="flicker-images"></script>                            
-							</div>
-							<!-- //Footer Col.// -->
-
-						</div>
-					</div>
-					*/ ?>
 				</div>
 			</div>
 
@@ -137,5 +123,18 @@
 		</div>
 	</div>
 </footer>
+
+<script>
+	/* jQuery Tweetable */
+	$('.footer-recent-tweets-container').tweetable({
+		username: 'reformedforum',
+		limit: 2,
+		time: true,
+		html5: true,
+		onComplete:function($ul) {
+			$('time').timeago();
+		}
+	});
+</script>
 
 <?php wp_footer(); ?>

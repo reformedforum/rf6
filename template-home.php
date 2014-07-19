@@ -340,6 +340,9 @@ Template Name: Home
 
 			<div class="space-sep40"></div>
 
+
+
+
 			<div class="container">
 
 				<div class="row animated" data-animtype="fadeInUp"
@@ -349,14 +352,27 @@ Template Name: Home
 
 					<div class="col-md-12 col-sm-12">
 						<h4 class="h4-section-title center-text">Subscribe To Our NewsLetter</h4>
-						<div class="section-subscribe">
-							<form action="#" method="post">
-								<input type="text" name="q" class="subscribe-input text-input" placeholder="Email..."/>
+						<div class="section-subscribe" id="mc_embed_signup">
+							<form action="//reformedforum.us2.list-manage.com/subscribe/post?u=14186c205d6f7604ade1f3155&amp;id=dc8e46dfca" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+								<div id="mce-responses" class="clear">
+									<div class="response" id="mce-error-response" style="display:none"></div>
+									<div class="response" id="mce-success-response" style="display:none"></div>
+								</div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+								<input type="text" name="b_14186c205d6f7604ade1f3155_dc8e46dfca" class="subscribe-input text-input" placeholder="Email..."/>
+								<?php //<input type="submit" name="subscribe" id="mc-embedded-subscribe" class="subscribe-button icon-email-plane"/>?>
 								<button class="subscribe-button icon-email-plane">
 
 								</button>
 							</form>
 						</div>
+						<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
+						<script type='text/javascript'>
+						(function($) {
+						window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';
+						}(jQuery));
+						var $mcj = jQuery.noConflict(true);
+						</script>
+						<!--End mc_embed_signup-->
 					</div>
 				</div>
 
@@ -552,7 +568,7 @@ Template Name: Home
 								<h4 class="h4-body-title">
 									<strong>New</strong> Testament            
 
-									<i class="icon-book-read-streamline"></i>
+									<a href="<?php echo bloginfo('home'); ?>/category/new-testament"><i class="icon-book-read-streamline"></i></a>
 								</h4>
 								<div class="content-box-text">
 									<p> 
@@ -574,7 +590,7 @@ Template Name: Home
 								<h4 class="h4-body-title">
 									<strong>Systematic</strong> Theology           
 
-									<i class="icon-world"></i>
+									<a href="<?php echo bloginfo('home'); ?>/category/systematic-theology"><i class="icon-world"></i></a>
 								</h4>
 								<div class="content-box-text">
 									<p> 
@@ -596,7 +612,7 @@ Template Name: Home
 								<h4 class="h4-body-title">
 									<strong>Apologetics</strong> &amp; <strong>Philosophy</strong>            
 
-									<i class="icon-cloud"></i>
+									<a href="<?php echo bloginfo('home'); ?>/category/apologetics"><i class="icon-cloud"></i></a>
 								</h4>
 								<div class="content-box-text">
 									<p> 
@@ -618,7 +634,7 @@ Template Name: Home
 								<h4 class="h4-body-title">
 									<strong>Practical</strong> Theology            
 
-									<i class="icon-coffee-streamline"></i>
+									<a href="<?php echo bloginfo('home'); ?>/category/practical-theology"><i class="icon-coffee-streamline"></i></a>
 								</h4>
 								<div class="content-box-text">
 									<p> 
@@ -644,7 +660,7 @@ Template Name: Home
 								 >
 								<h4 class="h4-body-title">
 									<strong>Old</strong> Testament             
-									<i class="icon-fire"></i>
+									<a href="<?php echo bloginfo('home'); ?>/category/old-testament"><i class="icon-fire"></i></a>
 								</h4>
 								<div class="content-box-text">
 									<p> 
@@ -665,7 +681,7 @@ Template Name: Home
 								 >
 								<h4 class="h4-body-title">
 										<strong>Biblical</strong> Theology
-										<a href=""><i class="icon-eye"></i></a>
+										<a href="<?php echo bloginfo('home'); ?>/category/biblical-theology"><i class="icon-eye"></i></a>
 								</h4>
 								<div class="content-box-text">
 									<p> 
@@ -687,7 +703,7 @@ Template Name: Home
 								<h4 class="h4-body-title">
 									<strong>Church</strong> History            
 
-									<i class="icon-clock-streamline-time"></i>
+									<a href="<?php echo bloginfo('home'); ?>/category/church-history"><i class="icon-clock-streamline-time"></i></a>
 								</h4>
 								<div class="content-box-text">
 									<p> 
@@ -709,7 +725,7 @@ Template Name: Home
 								<h4 class="h4-body-title">
 									<strong>Family</strong> &amp; <strong>Education</strong>            
 
-									<i class="icon-user-outline"></i>
+									<a href="<?php echo bloginfo('home'); ?>/category/family"><i class="icon-user-outline"></i></a>
 								</h4>
 								<div class="content-box-text">
 									<p> 
