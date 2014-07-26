@@ -54,8 +54,8 @@
 		<div class="blog-post-body">
 			<?php if ( get_post_type($post->ID) == 'podcast' ) { ?>
 				<?php rfmedia_player(); ?>
-				<div class="media"><?php rfmedia_duration(); ?>&middot;</div>
-				<div class="media"><?php rfmedia_links() ?></div>
+				<div class="rfmedia"><?php rfmedia_duration(); ?>&middot;</div>
+				<div class="rfmedia"><?php rfmedia_links() ?></div>
 			<?php } ?>
 		
 			<?php the_content(); ?>  

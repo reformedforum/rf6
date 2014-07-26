@@ -102,28 +102,4 @@ function add_custom_taxonomies() {
 }
 add_action( 'init', 'add_custom_taxonomies', 0 );
 
-function custom_feed_request($qv) { // adds custom post types back into main feed (i.e. reformedforum.org/feed)
-	if (isset($qv['feed']) && !isset($qv['post_type']))
-		/*
-		$qv['post_type'] = get_post_types($args = array(
-	  		'public'   => true,
-	  		'_builtin' => false
-		));
-		array_push($qv['post_type'],'post');
-		*/
-		$qv['post_type'] = array('post', 'podcast'); // this eliminates books from the main feed
-		return $qv;
-}
-add_filter('request', 'custom_feed_request');
-
-function namespace_add_custom_types( $query ) {
-  if ( is_archive() && !is_author() && empty( $query->query_vars['suppress_filters'] ) && empty($query->query_vars['post_type']) ) {
-    $query->set( 'post_type', array(
-     'post', 'podcast', 'book'
-		));
-	  return $query;
-	}
-}
-add_filter( 'pre_get_posts', 'namespace_add_custom_types' );
-
 ?>
